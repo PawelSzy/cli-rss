@@ -1,4 +1,4 @@
-<?php namespace SammyK\Skeleton;
+<?php namespace PawelSzy\Skeleton;
 
 class SkeletonClass
 {

@@ -13,7 +13,8 @@
         }
     ],
     "require": {
-        "php": ">=5.4.0"
+        "php": ">=5.4.0",
+        "dg/rss-php": "^1.2"
     },
     "require-dev": {
         "mockery/mockery": "dev-master@dev"
