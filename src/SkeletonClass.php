@@ -1,4 +1,4 @@
-<?php namespace PawelSzy\Skeleton;
+<?php namespace PawelSzy\Reader;
 
 class SkeletonClass
 {

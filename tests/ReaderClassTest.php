@@ -1,6 +1,6 @@
 <?php
 
-use PawelSzy\Skeleton\ReaderClass;
+use PawelSzy\Reader\ReaderClass;
 
 class ReaderClassTest extends \PHPUnit_Framework_TestCase
 {
@@ -16,6 +16,5 @@ class ReaderClassTest extends \PHPUnit_Framework_TestCase
             'command_type' =>'csv:simple',
             'url' => 'http://feeds.nationalgeographic.com/ng/News/News_Main',
             'write_to' => 'eksport_prosty.csv'));
-
     }
 }
