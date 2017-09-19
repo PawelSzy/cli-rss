@@ -5,7 +5,7 @@ require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
 
 
-class ReaderClass
+class Reader
 {
     public static function get_commands($arguments)
     {
