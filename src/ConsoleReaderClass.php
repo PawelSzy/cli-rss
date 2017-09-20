@@ -4,7 +4,7 @@ namespace PawelSzy\Reader;
 require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
 
-class ReaderClass
+class ConsoleReaderClass
 {
     public static function get_commands($arguments)
     {
@@ -15,11 +15,5 @@ class ReaderClass
         $commands['write_to'] = $arguments[3];
 
         return $commands;
-    }
-
-    public static function read_from_url($url)
-    {
-        $rss = Feed::loadRss($url);
-        return $rss;
     }
 }

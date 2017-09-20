@@ -1,6 +1,6 @@
 <?php
-use PawelSzy\Reader\ReaderClass;
-require __DIR__.'/../src/ReaderClass.php';
+use PawelSzy\Reader\ConsoleReaderClass;
+require __DIR__.'/../src/ConsoleReaderClass.php';
 
 class ReaderClassTest extends \PHPUnit_Framework_TestCase
 {
@@ -10,7 +10,7 @@ class ReaderClassTest extends \PHPUnit_Framework_TestCase
     public function testReader()
     {
         $arg = ['', 'csv:simple', 'http://feeds.nationalgeographic.com/ng/News/News_Main',  'eksport_prosty.csv'];
-        $commands = ReaderClass::get_commands($arg);
+        $commands = ConsoleReaderClass::get_commands($arg);
 
         $this->assertEquals($commands, array(
             'command_type' =>'csv:simple',

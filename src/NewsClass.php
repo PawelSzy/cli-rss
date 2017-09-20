@@ -12,13 +12,18 @@ class News
         $this->creator = $creator;
     }
 
-    public function to_array()
-    {
-        return (array)$this;
-    }
-
     public function get_caption()
     {
         return array_keys($this->to_array());
+    }
+
+    public function to_line()
+    {
+        return implode(', ', array_values($this->to_array()));
+    }
+
+    public function to_array()
+    {
+        return (array)$this;
     }
 }

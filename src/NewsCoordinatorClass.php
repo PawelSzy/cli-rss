@@ -28,5 +28,17 @@ class NewsCoordinator
     {
         return $this->news_set[0]->get_caption();
     }
+
+    public function get_array_of_news_lines()
+    {
+        $arr = [];
+
+        foreach($this->news_set as $news)
+        {
+            $arr[] = $news->to_line();
+        }
+
+        return $arr;
+    }
 }
 

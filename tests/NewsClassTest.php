@@ -3,7 +3,9 @@
 use PawelSzy\NewsCoordinator\NewsCoordinator;
 //use PawelSzy\XML\Xml_to_news;
 //use PawelSzy\MyNews\News;
+use PawelSzy\Writer\WriteCsv;
 require __DIR__.'/../src/NewsCoordinatorClass.php';
+require __DIR__.'/../src/WriterCsvClass.php';
 
 class NewsTest extends \PHPUnit_Framework_TestCase
 {
@@ -37,6 +39,19 @@ class NewsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(array("title", "description", "link", "pubDate", "creator"), $news_coord->get_caption());
     }
 
+    public function test_news_to_lines()
+    {
+        $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
+        $news_coord = new NewsCoordinator();
+        $news_coord->read_from_xml($xml);
+
+
+        $this->assertEquals(
+        "Ancient Maya King Found in 'Centipede Dynasty' Tomb,".
+        " <img src=\"http://feeds.feedburner.com/~r/ng/News/News_Main/~4/UcW2Wf6VPPM\" height=\"1\" width=\"1\" alt=\"\"/>,".
+        " http://feeds.nationalgeographic.com/~r/ng/News/News_Main/~3/UcW2Wf6VPPM/, 2017-Sep-Mon 21:33:59, Sarah Gibbens",
+            $news_coord->get_array_of_news_lines()[0]);
+    }
 
     function get_xml()
     {

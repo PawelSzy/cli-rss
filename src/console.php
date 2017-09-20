@@ -1,15 +1,15 @@
 <?php
 //namespace SammyK\Skeleton;
 require_once 'ReaderClass.php';
-use PawelSzy\Reader\ReaderClass;
+use PawelSzy\Reader\ConsoleReaderClass;
 
 $commands = [];
-$commands = ReaderClass::get_commands($argv) ;
+$commands = ConsoleReaderClass::get_commands($argv) ;
 
 foreach($commands as $command) {
     print $command;
     print "\n";
 }
 
-var_dump(ReaderClass::read_from_url($commands['url']));
+var_dump(RssReaderClass::read($commands['url']));
 

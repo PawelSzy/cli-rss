@@ -1,14 +1,14 @@
 <?php
-use PawelSzy\MyNews\News;
+Namespace PawelSzy\Writer;
 
 class WriteCsv
 {
-    static function write($array, $file)
+    function write($array, $file)
     {
         $f = fopen($file, "w");
         foreach ($array as $obj)
         {
-            fputcsv($f, $obj->to_array());
+            fputcsv($f, $obj->to_line());
         }
 
         fclose($f);
