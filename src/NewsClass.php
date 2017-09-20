@@ -8,7 +8,7 @@ class News
         $this->title = $title;
         $this->description = $description;
         $this->link = $link;
-        $this->pubDate = date('Y-M-D H:i:s', strtotime($pubDate));
+        $this->pubDate = date('Y-m-d H:i:s', strtotime($pubDate));
         $this->creator = $creator;
     }
 
