@@ -19,13 +19,8 @@ class CliReader
 
     public function write_to_file($file_name)
     {
-
         $news_coord = new NewsCoordinator();
-//        var_dump($this->information);
-
         $news_coord->read_from_xml($this->information);
-
-        var_dump($news_coord->get_array_of_news());
 
         $this->writer->write($news_coord->get_array_of_news(), $file_name);
     }

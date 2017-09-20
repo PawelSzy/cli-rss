@@ -9,6 +9,7 @@ require __DIR__.'/../src/WriterCsvClass.php';
 require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
 
+
 class NewsTest extends \PHPUnit_Framework_TestCase
 {
     public function test_is_news_created()
@@ -90,17 +91,12 @@ class NewsTest extends \PHPUnit_Framework_TestCase
 </rss>';
     }
 
-    private static function convert_xml_string($xml_string)
-    {
-        return str_replace('dc:creator', 'creator',$xml_string);
-    }
-
     /**
      * @return SimpleXMLElement
      */
     private function generate_xml_feed()
     {
-        $xml =  Feed::fromRss(new SimpleXMLElement(self::convert_xml_string($this->get_xml())));
+        $xml =  Feed::fromRss(new SimpleXMLElement(($this->get_xml())));
 
         return $xml;
     }
