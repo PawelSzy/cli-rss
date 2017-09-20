@@ -5,7 +5,6 @@ class News
 {
     public function __construct($title, $description, $link, $pubDate, $creator)
     {
-
         $this->title = $title;
         $this->description = $description;
         $this->link = $link;
@@ -16,13 +15,10 @@ class News
     public function to_array()
     {
         return (array)$this;
+    }
 
-//        'title' => $this->data->title = $title;
-//        $this->data->description = $description;
-//        $this->data->link = $link;
-//        $this->data->pubDate = date('Y-M-D H:i:s', strtotime($pubDate));
-//        $this->data->creator = $creator;
-        
-        
+    public function get_caption()
+    {
+        return array_keys($this->to_array());
     }
 }

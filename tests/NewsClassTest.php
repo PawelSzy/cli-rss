@@ -1,16 +1,16 @@
 <?php
 
-use PawelSzy\XML\Xml_to_news;
-use PawelSzy\MyNews\News;
-require __DIR__.'/../src/Xml_to_newsClass.php';
-require __DIR__.'/../src/NewsClass.php';
+use PawelSzy\NewsCoordinator\NewsCoordinator;
+//use PawelSzy\XML\Xml_to_news;
+//use PawelSzy\MyNews\News;
+require __DIR__.'/../src/NewsCoordinatorClass.php';
 
-class XmlElemToNewsTest extends \PHPUnit_Framework_TestCase
+class NewsTest extends \PHPUnit_Framework_TestCase
 {
     public function test_is_news_created()
     {
         $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
-        $news = Xml_to_news::convert_xml($xml);
+        $news = NewsCoordinator::convert_xml($xml);
 
         $this->assertEquals('Ancient Maya King Found in \'Centipede Dynasty\' Tomb', $news[0]->title);
     }
@@ -18,7 +18,7 @@ class XmlElemToNewsTest extends \PHPUnit_Framework_TestCase
     public function test_to_array_news()
     {
         $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
-        $news = Xml_to_news::convert_xml($xml);
+        $news = NewsCoordinator::convert_xml($xml);
 
         $this->assertEquals([
             "title" => 'Ancient Maya King Found in \'Centipede Dynasty\' Tomb',
@@ -27,6 +27,14 @@ class XmlElemToNewsTest extends \PHPUnit_Framework_TestCase
             "pubDate" => "2017-Sep-Mon 21:33:59",
             "creator" => "Sarah Gibbens"],
             $news[0]->to_array());
+    }
+
+    public function test_news_coordinator()
+    {
+        $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
+        $news_coord = new NewsCoordinator();
+        $news_coord->read_from_xml($xml);
+        $this->assertEquals(array("title", "description", "link", "pubDate", "creator"), $news_coord->get_caption());
     }
 
 

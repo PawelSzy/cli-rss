@@ -4,7 +4,6 @@ namespace PawelSzy\Reader;
 require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
 
-
 class ReaderClass
 {
     public static function get_commands($arguments)
