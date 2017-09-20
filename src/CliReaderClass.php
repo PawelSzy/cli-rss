@@ -25,8 +25,8 @@ class CliReader
 
         $news_coord->read_from_xml($this->information);
 
-        var_dump($news_coord->get_array_of_news_lines());
+        var_dump($news_coord->get_array_of_news());
 
-//        $this->writer->write($file_name);
+        $this->writer->write($news_coord->get_array_of_news(), $file_name);
     }
 }

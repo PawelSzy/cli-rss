@@ -14,7 +14,6 @@ class NewsCoordinator
 
     public static function convert_xml($xml)
     {
-        $news_array = [];
         foreach ($xml->item as $elem)
         {
             $news_array[] = new News((string) $elem->title, (string) $elem->description, (string) $elem->link, (string) $elem->pubDate, (string) $elem->creator);
@@ -28,13 +27,13 @@ class NewsCoordinator
         return $this->news_set[0]->get_caption();
     }
 
-    public function get_array_of_news_lines()
+    public function get_array_of_news()
     {
         $arr = [];
 
         foreach($this->news_set as $news)
         {
-            $arr[] = $news->to_line();
+            $arr[] = $news;
         }
 
         return $arr;

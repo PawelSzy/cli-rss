@@ -8,7 +8,7 @@ class WriteCsv
         $f = fopen($file, "w");
         foreach ($array as $obj)
         {
-            fputcsv($f, $obj->to_line());
+            fputcsv($f, $obj->to_array(), ',');
         }
 
         fclose($f);

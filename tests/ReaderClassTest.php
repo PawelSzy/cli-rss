@@ -4,10 +4,8 @@ require __DIR__.'/../src/ConsoleReaderClass.php';
 
 class ReaderClassTest extends \PHPUnit_Framework_TestCase
 {
-    /**
-     * Test that true does in fact equal true
-     */
-    public function testReader()
+
+    public function testConsoleReader()
     {
         $arg = ['', 'csv:simple', 'http://feeds.nationalgeographic.com/ng/News/News_Main',  'eksport_prosty.csv'];
         $commands = ConsoleReaderClass::get_commands($arg);

@@ -22,6 +22,3 @@ $my_reader = new CliReader(new RssReaderClass(), new WriteCsv());
 $my_reader->load_from_url($commands['url']);
 $my_reader->write_to_file($commands['write_to']);
 
-
-//var_dump(RssReaderClass::read($commands['url']));
-

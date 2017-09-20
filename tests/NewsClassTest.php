@@ -6,12 +6,14 @@ use PawelSzy\NewsCoordinator\NewsCoordinator;
 use PawelSzy\Writer\WriteCsv;
 require __DIR__.'/../src/NewsCoordinatorClass.php';
 require __DIR__.'/../src/WriterCsvClass.php';
+require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
+use Feed;
 
 class NewsTest extends \PHPUnit_Framework_TestCase
 {
     public function test_is_news_created()
     {
-        $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
+        $xml = $this->generate_xml_feed();
         $news = NewsCoordinator::convert_xml($xml);
 
         $this->assertEquals('Ancient Maya King Found in \'Centipede Dynasty\' Tomb', $news[0]->title);
@@ -19,21 +21,21 @@ class NewsTest extends \PHPUnit_Framework_TestCase
 
     public function test_to_array_news()
     {
-        $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
+        $xml = $this->generate_xml_feed();
         $news = NewsCoordinator::convert_xml($xml);
 
         $this->assertEquals([
             "title" => 'Ancient Maya King Found in \'Centipede Dynasty\' Tomb',
             "description" => '<img src="http://feeds.feedburner.com/~r/ng/News/News_Main/~4/UcW2Wf6VPPM" height="1" width="1" alt=""/>',
             "link" => "http://feeds.nationalgeographic.com/~r/ng/News/News_Main/~3/UcW2Wf6VPPM/",
-            "pubDate" => "2017-Sep-Mon 21:33:59",
+            "pubDate" => "2017-09-18 21:33:59",
             "creator" => "Sarah Gibbens"],
             $news[0]->to_array());
     }
 
     public function test_news_coordinator()
     {
-        $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
+        $xml = $this->generate_xml_feed();
         $news_coord = new NewsCoordinator();
         $news_coord->read_from_xml($xml);
         $this->assertEquals(array("title", "description", "link", "pubDate", "creator"), $news_coord->get_caption());
@@ -41,7 +43,7 @@ class NewsTest extends \PHPUnit_Framework_TestCase
 
     public function test_news_to_lines()
     {
-        $xml = new SimpleXMLElement(self::convert_xml_string($this->get_xml()));
+        $xml = $this->generate_xml_feed();
         $news_coord = new NewsCoordinator();
         $news_coord->read_from_xml($xml);
 
@@ -49,8 +51,8 @@ class NewsTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(
         "Ancient Maya King Found in 'Centipede Dynasty' Tomb,".
         " <img src=\"http://feeds.feedburner.com/~r/ng/News/News_Main/~4/UcW2Wf6VPPM\" height=\"1\" width=\"1\" alt=\"\"/>,".
-        " http://feeds.nationalgeographic.com/~r/ng/News/News_Main/~3/UcW2Wf6VPPM/, 2017-Sep-Mon 21:33:59, Sarah Gibbens",
-            $news_coord->get_array_of_news_lines()[0]);
+        " http://feeds.nationalgeographic.com/~r/ng/News/News_Main/~3/UcW2Wf6VPPM/, 2017-09-18 21:33:59, Sarah Gibbens",
+            $news_coord->get_array_of_news()[0]->to_line());
     }
 
     function get_xml()
@@ -91,5 +93,15 @@ class NewsTest extends \PHPUnit_Framework_TestCase
     private static function convert_xml_string($xml_string)
     {
         return str_replace('dc:creator', 'creator',$xml_string);
+    }
+
+    /**
+     * @return SimpleXMLElement
+     */
+    private function generate_xml_feed()
+    {
+        $xml =  Feed::fromRss(new SimpleXMLElement(self::convert_xml_string($this->get_xml())));
+
+        return $xml;
     }
 }
