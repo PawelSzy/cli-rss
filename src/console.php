@@ -17,8 +17,10 @@ foreach($commands as $command) {
     print "\n";
 }
 
+$apppend_to_end = explode(":", $commands['command_type'])[1] == 'simple' ? false : true ;
+
 $my_reader = new CliReader(new RssReaderClass(), new WriteCsv());
 
 $my_reader->load_from_url($commands['url']);
-$my_reader->write_to_file($commands['write_to']);
+$my_reader->write_to_file($commands['write_to'], $apppend_to_end);
 

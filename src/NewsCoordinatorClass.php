@@ -16,8 +16,6 @@ class NewsCoordinator
     {
         foreach ($xml->item as $elem)
         {
-//            var_dump($elem);
-
             $news_array[] = new News(
                 (string) $elem->title,
                 (string) $elem->description,
