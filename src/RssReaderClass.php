@@ -1,4 +1,8 @@
 <?php
+namespace PawelSzy\Rss;
+
+require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
+use Feed;
 
 class RssReaderClass
 {
