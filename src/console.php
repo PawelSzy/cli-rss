@@ -17,6 +17,13 @@ foreach($commands as $command) {
     print "\n";
 }
 
+If(!$commands['command_type'] || $commands['url'] || $commands['write_to'])
+{
+    print "Niepoprawna komenda";
+    return null;
+}
+
+
 $apppend_to_end = explode(":", $commands['command_type'])[1] == 'simple' ? false : true ;
 
 $my_reader = new CliReader(new RssReaderClass(), new WriteCsv());
