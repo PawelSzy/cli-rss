@@ -1,12 +1,16 @@
 <?php
 namespace PawelSzy\NewsCoordinator;
-require 'NewsCoordinatorClass.php';
+require_once 'NewsCoordinatorClass.php';
+require_once __DIR__."/interfaces/ReadWriteInterface.php";
+use PawelSzy\myInterfaces\ReadWrite\Readable;
+use PawelSzy\myInterfaces\ReadWrite\Writeable;
+
 
 class CliReader
 {
     private $information = null;
 
-    public function __construct($reader, $writer)
+    public function __construct(Readable $reader, Writeable $writer)
     {
         $this->reader = $reader;
         $this->writer = $writer;

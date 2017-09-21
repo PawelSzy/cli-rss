@@ -1,12 +1,14 @@
 <?php
 namespace PawelSzy\Rss;
+require_once __DIR__."/interfaces/ReadWriteInterface.php";
+use PawelSzy\myInterfaces\ReadWrite\Readable;
 
 require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
 
-class RssReaderClass
+class RssReaderClass implements Readable
 {
-    public static function read($url)
+    public function read($url)
     {
         $rss = Feed::loadRss($url);
 

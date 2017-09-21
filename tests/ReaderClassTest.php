@@ -1,6 +1,6 @@
 <?php
 use PawelSzy\Reader\ConsoleReaderClass;
-require __DIR__.'/../src/ConsoleReaderClass.php';
+require_once __DIR__.'/../src/ConsoleReaderClass.php';
 
 class ReaderClassTest extends \PHPUnit_Framework_TestCase
 {

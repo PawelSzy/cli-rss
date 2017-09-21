@@ -4,9 +4,9 @@ use PawelSzy\NewsCoordinator\NewsCoordinator;
 //use PawelSzy\XML\Xml_to_news;
 //use PawelSzy\MyNews\News;
 use PawelSzy\Writer\WriteCsv;
-require __DIR__.'/../src/NewsCoordinatorClass.php';
-require __DIR__.'/../src/WriterCsvClass.php';
-require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
+require_once __DIR__.'/../src/NewsCoordinatorClass.php';
+require_once __DIR__.'/../src/WriterCsvClass.php';
+require_once __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
 
 
