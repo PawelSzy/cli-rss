@@ -29,7 +29,7 @@ class NewsCoordinator
 
     public function get_caption()
     {
-        return $this->news_set[0]->get_caption();
+        return array_map('ucfirst', $this->news_set[0]->get_caption());
     }
 
     public function get_array_of_news()

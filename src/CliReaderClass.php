@@ -4,7 +4,7 @@ require_once 'NewsCoordinatorClass.php';
 require_once __DIR__."/interfaces/ReadWriteInterface.php";
 use PawelSzyHRtec\Src\myInterfaces\ReadWrite\Readable;
 use PawelSzyHRtec\Src\myInterfaces\ReadWrite\Writeable;
-
+use Exception;
 
 class CliReader
 {

@@ -1,9 +1,6 @@
 <?php
 
 use PawelSzyHRtec\Src\NewsCoordinator\NewsCoordinator;
-//use PawelSzyHRtec\Src\XML\Xml_to_news;
-//use PawelSzyHRtec\Src\MyNews\News;
-use PawelSzyHRtec\Src\Writer\WriteCsv;
 require_once __DIR__.'/../src/NewsCoordinatorClass.php';
 require_once __DIR__.'/../src/WriterCsvClass.php';
 require_once __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
@@ -39,7 +36,7 @@ class NewsTest extends \PHPUnit_Framework_TestCase
         $xml = $this->generate_xml_feed();
         $news_coord = new NewsCoordinator();
         $news_coord->read_from_xml($xml);
-        $this->assertEquals(array("title", "description", "link", "pubDate", "creator"), $news_coord->get_caption());
+        $this->assertEquals(array("Title", "Description", "Link", "PubDate", "Creator"), $news_coord->get_caption());
     }
 
     public function test_news_to_lines()
