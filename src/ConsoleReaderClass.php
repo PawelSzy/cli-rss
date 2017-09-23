@@ -1,5 +1,5 @@
 <?php
-namespace PawelSzy\Reader;
+namespace PawelSzyHRtec\Src\Reader;
 
 class ConsoleReaderClass
 {

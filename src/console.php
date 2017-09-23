@@ -4,10 +4,10 @@ require_once 'ConsoleReaderClass.php';
 require_once 'RssReaderClass.php';
 require_once 'CliReaderClass.php';
 require_once 'WriterCsvClass.php';
-use PawelSzy\Reader\ConsoleReaderClass;
-use PawelSzy\Rss\RssReaderClass;
-use PawelSzy\NewsCoordinator\CliReader;
-use \PawelSzy\Writer\WriteCsv;
+use PawelSzyHRtec\Src\Reader\ConsoleReaderClass;
+use PawelSzyHRtec\Src\Rss\RssReaderClass;
+use PawelSzyHRtec\Src\NewsCoordinator\CliReader;
+use \PawelSzyHRtec\Src\Writer\WriteCsv;
 
 $commands = [];
 $commands = ConsoleReaderClass::get_commands($argv) ;
@@ -17,12 +17,11 @@ foreach($commands as $command) {
     print "\n";
 }
 
-If(!$commands['command_type'] || $commands['url'] || $commands['write_to'])
+If(!$commands['command_type'] || !$commands['url'] || !$commands['write_to'])
 {
     print "Niepoprawna komenda";
     return null;
 }
-
 
 $apppend_to_end = explode(":", $commands['command_type'])[1] == 'simple' ? false : true ;
 

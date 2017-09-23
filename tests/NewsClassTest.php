@@ -1,9 +1,9 @@
 <?php
 
-use PawelSzy\NewsCoordinator\NewsCoordinator;
-//use PawelSzy\XML\Xml_to_news;
-//use PawelSzy\MyNews\News;
-use PawelSzy\Writer\WriteCsv;
+use PawelSzyHRtec\Src\NewsCoordinator\NewsCoordinator;
+//use PawelSzyHRtec\Src\XML\Xml_to_news;
+//use PawelSzyHRtec\Src\MyNews\News;
+use PawelSzyHRtec\Src\Writer\WriteCsv;
 require_once __DIR__.'/../src/NewsCoordinatorClass.php';
 require_once __DIR__.'/../src/WriterCsvClass.php';
 require_once __DIR__.'/../vendor/dg/rss-php/src/Feed.php';

@@ -1,5 +1,5 @@
 <?php
-namespace PawelSzy\MyNews;
+namespace PawelSzyHRtec\Src\MyNews;
 
 class News
 {

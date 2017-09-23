@@ -1,9 +1,9 @@
 <?php
-namespace PawelSzy\NewsCoordinator;
+namespace PawelSzyHRtec\Src\NewsCoordinator;
 require_once 'NewsCoordinatorClass.php';
 require_once __DIR__."/interfaces/ReadWriteInterface.php";
-use PawelSzy\myInterfaces\ReadWrite\Readable;
-use PawelSzy\myInterfaces\ReadWrite\Writeable;
+use PawelSzyHRtec\Src\myInterfaces\ReadWrite\Readable;
+use PawelSzyHRtec\Src\myInterfaces\ReadWrite\Writeable;
 
 
 class CliReader

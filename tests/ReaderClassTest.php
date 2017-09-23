@@ -1,5 +1,5 @@
 <?php
-use PawelSzy\Reader\ConsoleReaderClass;
+use PawelSzyHRtec\Src\Reader\ConsoleReaderClass;
 require_once __DIR__.'/../src/ConsoleReaderClass.php';
 
 class ReaderClassTest extends \PHPUnit_Framework_TestCase

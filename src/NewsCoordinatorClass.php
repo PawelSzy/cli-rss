@@ -1,6 +1,6 @@
 <?php
-namespace PawelSzy\NewsCoordinator;
-use PawelSzy\MyNews\News;
+namespace PawelSzyHRtec\Src\NewsCoordinator;
+use PawelSzyHRtec\Src\MyNews\News;
 require 'NewsClass.php';
 
 class NewsCoordinator

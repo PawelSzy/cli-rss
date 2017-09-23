@@ -1,5 +1,5 @@
 <?php
-namespace PawelSzy\myInterfaces\ReadWrite;
+namespace PawelSzyHRtec\Src\myInterfaces\ReadWrite;
 
 
 // Declare the interface Readable

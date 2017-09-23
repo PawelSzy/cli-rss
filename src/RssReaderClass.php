@@ -1,7 +1,7 @@
 <?php
-namespace PawelSzy\Rss;
+namespace PawelSzyHRtec\Src\Rss;
 require_once __DIR__."/interfaces/ReadWriteInterface.php";
-use PawelSzy\myInterfaces\ReadWrite\Readable;
+use PawelSzyHRtec\Src\myInterfaces\ReadWrite\Readable;
 
 require __DIR__.'/../vendor/dg/rss-php/src/Feed.php';
 use Feed;
